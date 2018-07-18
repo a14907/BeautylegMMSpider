@@ -43,6 +43,10 @@ namespace BeautyLegMMSpider
             var baseDir = _folderBrowserDialog.SelectedPath;
             foreach (ResourcesItem c in gbTuJis.Controls)
             {
+                if (!c.IsCheck())
+                {
+                    continue;
+                }
                 var tag = c.Tag as Tuple<string, string>;
                 await HandlerTuJi(tag.Item1, tag.Item2, baseDir);
             }
